@@ -22,4 +22,15 @@ router.get("/:_id", async (req, res) => {
     }
 })
 
+router.get("/0/all", async (req, res) => {
+    try {
+        const limit = Number(req.query.limit)
+        const authors = await Author.find({ isAuthor: true }, { userId: 1 }).limit(limit)
+        res.status(200).json(authors)
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
+
+
 module.exports = router

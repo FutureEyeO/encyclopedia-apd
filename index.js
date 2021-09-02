@@ -20,10 +20,7 @@ dotenv.config()
 // mongodb username : admin
 // mongodb password : ASMNlkA3Cg48dLm4
 
-const MONGO_URL = "mongodb+srv://admin:ASMNlkA3Cg48dLm4@cluster0.uzsw1.mongodb.net/main?retryWrites=true&w=majority"
-
-
-mongoose.connect(MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
+mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
     if (err) console.log("[!] - haven't connected to MongoDB")
     else console.log("[+] - have conncted successfully ")
 })
